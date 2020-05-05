@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Meet</title>
+  <script src="https://unpkg.com/d3@5.15.0/dist/d3.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+ 
+  <section>
+
+    <div class='left' id='meetingTimer' onClick='startMainClock()'>
+      <span class='littleTitle'>MEETING TIMER</span>
+      <span class='bigTimer' id='t_main'>12:24</span>
+    </div>
+
+    <div class='right' id='onTheTable'>
+      <span class='littleTitle'>ON THE TABLE</span>
+      <span class='bigText' id='onTableTitle'>...</span>
+      <span class='bigTimer' id='t_item'>12:23</span>
+    </div>
+
+    <div class='left' id='agenda'>
+      <div class='littleTitle' id='agendaTitle'>AGENDA</div>
+      <div id='agendaList'>
+
+
+      </div>
+    </div>
+
+    <div class='right' id='content'>
+      <iframe id='iframe' class='web' src='http://xnlo.s3-website.us-east-2.amazonaws.com/dot/'></iframe>
+    </div>
+  </section>
+    
+
+
+
+
+  <script src="index.js"></script>
+
+</html>

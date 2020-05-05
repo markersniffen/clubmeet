@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background-color: black;
+  color: white;
+  font-family: monospace, sans-serif;
+}
+
+
+section {
+  
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+section > div {
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  background-color: #222222;
+}
+
+.left {
+  flex: 0 0 30%;
+}
+
+.right {
+  flex: 1 0 66%;
+}
+
+#meetingTimer {
+
+  justify-content: space-between;
+}
+
+#meetingTimer:hover {
+  background-color: rgb(150,50,50);
+}
+
+#onTheTable {
+
+  justify-content: space-between;
+}
+
+#agenda {
+
+  flex-direction: column;
+}
+
+#content {
+
+  border-left: solid;
+  border-top: solid;
+  border-color: green;
+}
+
+.littleTitle {
+ 
+  font-size: .8em;
+  vertical-align: text-top;
+}
+
+.bigTimer {
+  font-size: 4em;
+  line-height: .8;
+  font-weight: bolder;
+}
+
+.bigText {
+  align-self: center;
+  font-size: 2em;
+  line-height: .8;
+  font-weight: bolder;
+}
+
+#agendaTitle { 
+  padding-bottom: 10px;;
+}
+
+.item {
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 1.5em;
+  background-color: #111111;
+  font-weight: bolder;
+}
+
+.itemText { 
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.itemContent {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: .5em;
+  font-weight: lighter;
+}
+
+.active {
+  background-color: green;
+  margin-right: -20px;
+}
+
+.web {
+  width: 100%;
+  height: 800px;
+}
+.item:hover {
+  background-color: #333333;
+}
+.active:hover {
+  background-color: darkgreen;
+}
