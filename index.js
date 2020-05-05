@@ -88,16 +88,13 @@ function update() {
 
 }
 
-const url = 'https://raw.githubusercontent.com/markersniffen/clubmeet/master/agenda.json'
-
-$.getJSON(url, function(result){
-    agenda = result.agenda;
-    console.log(agenda)
-    agenda.forEach(d => addItem(d.title, d.body))
-    setActive(event, 0)
-})
-
-
+const url2 = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSMUCxuIclxHbdBvAGHB5zMozr5KW1XLBq4BTVaTBykpqz3m9Y0RxLkDfG1KBjRZFY-oPXDcLp5tQjf/pub?gid=0&single=true&output=csv'
+d3.csv(url2).then(function(data) {
+  console.log(">>>>>>>>>", data);
+  agenda = data;
+  agenda.forEach(d => addItem(d.title, d.description))
+  setActive(event, 0)
+});
 
 let clock = setInterval(update, 1000);
 
