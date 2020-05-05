@@ -98,8 +98,9 @@ function update() {
 
 }
 
-agenda.forEach(d => addItem(d.title, d.body))
 
+agenda.forEach(d => addItem(d.title, d.body))
+setActive(event, 0)
 
 let clock = setInterval(update, 1000);
 
