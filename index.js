@@ -86,11 +86,17 @@ function update() {
 
 }
 
+const url = 'https://raw.githubusercontent.com/markersniffen/clubmeet/master/agenda.json'
+
+$.getJSON(url, function(result){
+    agenda = result.agenda;
+    console.log(agenda)
+    agenda.forEach(d => addItem(d.title, d.body))
+    setActive(event, 0)
+})
 
 
-agenda.forEach(d => addItem(d.title, d.body))
-setActive(event, 0)
 
-let clock = setInterval(update, 1000);
+//let clock = setInterval(update, 1000);
 
 
