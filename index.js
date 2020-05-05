@@ -3,6 +3,7 @@ hour = 36000000 //seconds
 activeItem = null;
 
 let agenda = null;
+
 const t_main = document.getElementById('t_main')
 const t_item = document.getElementById('t_item')
 const agendaList = document.getElementById('agendaList')
@@ -57,6 +58,7 @@ function startMainClock() {
 }
 
 function update() {
+
   hour = hour - 1000;
   now = new Date().getTime()
   
@@ -73,7 +75,8 @@ function update() {
 
 
   if (activeItem != null) {
-    agenda[activeItem].timer += 1000
+    console.log(agenda[activeItem].timer)
+    agenda[activeItem].timer = agenda[activeItem].timer + 1000
 
     let m = Math.floor((agenda[activeItem].timer % (1000 * 60 * 60)) / (1000 * 60));
     let s = Math.floor((agenda[activeItem].timer % (1000 * 60)) / 1000);
@@ -90,11 +93,15 @@ function update() {
 
 const url2 = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSMUCxuIclxHbdBvAGHB5zMozr5KW1XLBq4BTVaTBykpqz3m9Y0RxLkDfG1KBjRZFY-oPXDcLp5tQjf/pub?gid=0&single=true&output=csv'
 d3.csv(url2).then(function(data) {
-  console.log(">>>>>>>>>", data);
   agenda = data;
-  agenda.forEach(d => addItem(d.title, d.description))
+  agenda.forEach(d => { 
+    addItem(d.title, d.description);
+    d.timer = parseInt(d.timer)
+  })
   setActive(event, 0)
+  update();
 });
+
 
 let clock = setInterval(update, 1000);
 
