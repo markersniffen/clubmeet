@@ -66,8 +66,10 @@ function update() {
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   if (seconds < 10) { seconds = '0' + seconds}
+  if (hours == 0) { hours = ''} else { hours = hours + ":"}
 
-  t_main.innerHTML = hours + ":" + minutes + ":" + seconds;
+
+  t_main.innerHTML = hours + minutes + ":" + seconds;
 
 
   if (activeItem != null) {
@@ -97,6 +99,6 @@ $.getJSON(url, function(result){
 
 
 
-//let clock = setInterval(update, 1000);
+let clock = setInterval(update, 1000);
 
 
