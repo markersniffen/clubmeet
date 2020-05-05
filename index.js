@@ -1,22 +1,8 @@
-agenda = [
-  {
-    title: 'Lease Discussion',
-    body: 'We are going to talk about how the lease.',
-    timer: 0,
-    link: 'https://docs.google.com/document/d/1AjVDGt3SskIA8eYE3VbxfjxqbraahVdDtjJValxRzMk/edit?usp=sharing'
-  },
-  {
-    title: 'Wrench Club Values',
-    body: 'What values do we have, what do we want to be, and how do we achieve that?',
-    timer: 0,
-    link: 'https://docs.google.com/document/d/1uuUIomIbcln1UB5Zlu9p20_5tAOAClvsMrpj4yFmiFE/edit?usp=sharing'
-  }
-]
-
 endTime = new Date('May 5, 2020 21:00:00').getTime();
 hour = 36000000 //seconds
 activeItem = null;
 
+let agenda = null;
 const t_main = document.getElementById('t_main')
 const t_item = document.getElementById('t_item')
 const agendaList = document.getElementById('agendaList')
@@ -80,7 +66,9 @@ function update() {
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   if (seconds < 10) { seconds = '0' + seconds}
+
   t_main.innerHTML = hours + ":" + minutes + ":" + seconds;
+
 
   if (activeItem != null) {
     agenda[activeItem].timer += 1000
@@ -97,6 +85,7 @@ function update() {
   
 
 }
+
 
 
 agenda.forEach(d => addItem(d.title, d.body))
